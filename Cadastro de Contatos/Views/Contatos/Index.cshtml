@@ -1,0 +1,66 @@
+﻿@model List<Contatomodel> 
+@{
+    ViewData["Title"] = "Lista de Contatos";
+}
+
+@if(TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+    <button type="button" class="btn btn-danger btn-sm  close-alert" arial-label="Close" >x</button>
+  @TempData["MensagemSucesso"]
+</div>
+}
+
+@if(TempData["MensagemErro"] != null )
+{
+    <div class="alert alert-danger" role="alert">
+    <button type="button" class="btn btn-danger btn-sm  close-alert" arial-label="Close" >x</button>
+  @TempData["MensagemErro"]
+</div>
+}
+
+<br />
+
+
+
+<a role="button" class="btn btn-primary" asp-controller = "Contatos" asp-action = "adicionar"   >Adicionar Contato</a> 
+
+<div class="text-center">
+    <h1 class="display-4">Lista de Contatos</h1>
+    <table class="table" id="table-contatos">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Celular</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (Model != null)
+            {
+                foreach (Contatomodel Contato in Model)
+                {
+                    <tr>
+                    <th scope="row">@Contato.id</th>
+                    <td>@Contato.Name</td>
+                    <td>@Contato.email</td>
+                    <td>@Contato.celular</td>
+                    <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <a role="button" class="btn btn-primary" asp-route-id="@Contato.id" asp-controller="Contatos" asp-action="Editar" >Editar</a>
+                    <a role="button" class="btn btn-danger" asp-route-id="@Contato.id" asp-controller="Contatos" asp-action="ApagarConfirmacao">Apagar</a>
+                    </div>
+                    </td>
+                    </tr>                                      
+
+                }
+
+
+            }
+
+  </tbody>
+</table>
+
+</div>

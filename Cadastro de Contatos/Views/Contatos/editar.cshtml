@@ -1,0 +1,33 @@
+﻿@model Contatomodel
+@{
+    ViewData["Title"] = "Editar Cadastro";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Editar Cadastro</h1>
+</div>
+
+<form asp-controller = "Contatos" asp-action = "Editar" method ="post">
+
+<input type="hidden" asp-for = "id"   />
+  <div class="form-group">
+    <label for="Nome">Qual seu Nome?</label>
+    <input type="text" asp-for = "Name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome ">
+    @Html.ValidationMessageFor(x => x.Name)
+  </div>
+  <div class="form-group">
+    <label for="E-mail">Qual seu E-mail</label>
+    <input type="text" asp-for = "email" class="form-control" id="exampleInputPassword1" placeholder="E-mail">
+     <p class="form-text text-success">Nao Compartilhamos Informaçoens!</p>
+     @Html.ValidationMessageFor(x => x.email)
+  </div>
+   <div class="form-group">
+    <label for="exampleInputEmail1">Celular</label>
+    <input type="text" asp-for = "celular" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="11 00000-0000">
+    @Html.ValidationMessageFor(x => x.celular)
+  </div>
+  </br>
+  <button class="btn btn-primary btn-block" >Confirmar Cadastro</button>
+  <a class="btn btn-secondary btn-block " asp-controller = "contatos" asp-action = "index" role="button"  >Voltar</a>
+</form>

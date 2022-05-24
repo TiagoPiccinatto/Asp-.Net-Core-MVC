@@ -1,0 +1,10 @@
+﻿@model Contatomodel
+
+<div class="text-center">
+    <h1 class="display-4">Deseja realmente Apagar o contato  </h1>
+    <p class="text-center display-5">Nome: @Model.Name</p>
+
+   <div class="btn-group" role="group" aria-label="Basic example">
+  <a role="button" class="btn btn-danger" asp-route-id = "@Model.id" asp-controller = "Contatos" asp-action = "Apagar">Confirmar</a>
+  <a role="button" class="btn btn-secondary" asp-controller = "Contatos" asp-action = "Index">Voltar</a>
+   </div>

@@ -1,0 +1,38 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Cadastro de Usuario";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Cadastro de Usuario</h1>
+</div>
+
+<form asp-controller = "Usuario" asp-action = "Adicionar" method = "post">
+  <div class="form-group">
+    <label for="Nome">Qual seu Nome?</label>
+    <input type="text"  asp-for = "Nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome ">
+    @Html.ValidationMessageFor(x => x.Nome)
+  </div>
+  <div class="form-group">
+    <label for="E-mail">Qual seu E-mail</label>
+    <input type="text" asp-for = "Email" class="form-control" id="exampleInputPassword1" placeholder="E-mail">
+     @Html.ValidationMessageFor(x => x.Email)
+     <p class="form-text text-success">Nao Compartilhamos Informaçoens!</p>
+  </div>
+   <div class="form-group">
+    <label for="exampleInputEmail1">Login</label>
+    <input type="text" asp-for = "Login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario">
+     @Html.ValidationMessageFor(x => x.Login)
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Senha</label>
+    <input type="text" asp-for = "Senha" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="***********">
+     @Html.ValidationMessageFor(x => x.Senha)
+  </div>
+  
+  </br>
+
+  <button type="submit" class="btn btn-primary">Confirmar Cadastro</button>
+  <a role="button" class="btn btn-secondary" asp-controller = "Usuario" asp-action = "index" >Voltar</a>
+</form>
